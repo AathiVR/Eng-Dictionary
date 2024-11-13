@@ -42,6 +42,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.eng_dictionary.R
 import com.example.eng_dictionary.domain.model.Meaning
@@ -56,6 +57,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+  installSplashScreen()
         setContent {
             EngDictionaryTheme {
                 BarColor()
@@ -173,7 +175,7 @@ class MainActivity : ComponentActivity() {
                 if (mainState.isLoading) {
                     CircularProgressIndicator(
                         modifier = Modifier
-                            .size(80.dp)
+                            .size(50.dp)
                             .align(Alignment.Center),
                         color = MaterialTheme.colorScheme.primary
                     )
@@ -271,7 +273,7 @@ class MainActivity : ComponentActivity() {
                 ) {
 
                     Text(
-                        text = stringResource(R.string.definition),
+                        text = ("Example:  "),
                         fontWeight = FontWeight.SemiBold,
                         fontSize = 19.sp,
                         color = MaterialTheme.colorScheme.primary
